@@ -2145,3 +2145,42 @@ test("serializing belongsTo correctly removes embedded foreign key", function(as
     }
   });
 });
+
+test("serializing belongsTo works with custom keyForRelationship", function(assert) {
+  SecretWeapon.reopen({
+    superVillain: null
+  });
+  EvilMinion.reopen({
+    secretWeapon: DS.belongsTo('secret-weapon', { async: false }),
+    superVillain: null
+  });
+
+  run(function() {
+    secretWeapon = env.store.createRecord('secret-weapon', { name: "Secret Weapon" });
+    evilMinion = env.store.createRecord('evil-minion', { name: "Evil Minion", secretWeapon: secretWeapon });
+  });
+
+  env.registry.register('serializer:evil-minion', DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
+    attrs: {
+      secretWeapon: { embedded: 'always' }
+    },
+
+    keyForRelationship(key, type) {
+      return 'customKeyForSecretWeapon';
+    }
+  }));
+
+  var serializer = env.store.serializerFor("evil-minion");
+  var json;
+
+  run(function() {
+    json = serializer.serialize(evilMinion._createSnapshot());
+  });
+
+  assert.deepEqual(json, {
+    name: "Evil Minion",
+    customKeyForSecretWeapon: {
+      name: "Secret Weapon"
+    }
+  });
+});
