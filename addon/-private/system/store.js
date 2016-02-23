@@ -79,6 +79,8 @@ var Store;
 
 const { Service } = Ember;
 
+import createStore from 'ember-data/-private/system/store/derp';
+
 // Implementors Note:
 //
 //   The variables in this file are consistently named according to the following
@@ -177,7 +179,7 @@ Store = Service.extend({
     this._super(...arguments);
     this._backburner = new Backburner(['normalizeRelationships', 'syncRelationships', 'finished']);
     // internal bookkeeping; not observable
-    this.typeMaps = {};
+    this.store = createStore({});
     this.recordArrayManager = RecordArrayManager.create({
       store: this
     });
@@ -1075,7 +1077,7 @@ Store = Service.extend({
   unloadAll(modelName) {
     assert('Passing classes to store methods has been removed. Please pass a dasherized string instead of '+ Ember.inspect(modelName), !modelName || typeof modelName === 'string');
     if (arguments.length === 0) {
-      let typeMaps = this.typeMaps;
+      let typeMaps = this.store.getState();
       let keys = Object.keys(typeMaps);
       let types = new Array(keys.length);
 
@@ -1375,7 +1377,7 @@ Store = Service.extend({
     @return {Object} typeMap
   */
   typeMapFor(typeClass) {
-    var typeMaps = get(this, 'typeMaps');
+    var typeMaps = this.store.getState();
     var guid = Ember.guidFor(typeClass);
     var typeMap = typeMaps[guid];
 
