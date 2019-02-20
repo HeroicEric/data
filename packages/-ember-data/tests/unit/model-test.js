@@ -6,7 +6,7 @@ import { module, test } from 'qunit';
 import { settled } from '@ember/test-helpers';
 import { setupTest } from 'ember-qunit';
 import Model from 'ember-data/model';
-import { InvalidError } from 'ember-data/adapters/errors';
+import { InvalidError } from '@ember-data/adapter/error';
 import JSONAPIAdapter from 'ember-data/adapters/json-api';
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 import JSONSerializer from 'ember-data/serializers/json';

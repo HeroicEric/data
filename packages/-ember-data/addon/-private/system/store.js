@@ -14,7 +14,7 @@ import Service from '@ember/service';
 import { typeOf, isPresent, isNone } from '@ember/utils';
 
 import Ember from 'ember';
-import { InvalidError } from '../adapters/errors';
+import { InvalidError } from '@ember-data/adapter/error';
 import { instrument } from 'ember-data/-debug';
 import { assert, deprecate, warn, inspect } from '@ember/debug';
 import { DEBUG } from '@glimmer/env';

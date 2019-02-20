@@ -6,10 +6,10 @@ import { getOwner } from '@ember/application';
 import Serializer from '../serializer';
 import {
   coerceId,
-  modelHasAttributeOrRelationshipNamedType,
-  errorsArrayToHash,
+  modelHasAttributeOrRelationshipNamedType
 } from '../-private';
 
+import { errorsArrayToHash } from '@ember-data/adapter/error';
 import { normalizeModelName } from '@ember-data/store';
 
 const emberAssign = assign || merge;

@@ -8,7 +8,7 @@ import { attr, hasMany, belongsTo } from '@ember-decorators/data';
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 import Store from 'ember-data/store';
 import { Promise, resolve, reject } from 'rsvp';
-import { ServerError } from 'ember-data/adapters/errors';
+import { ServerError } from '@ember-data/adapter/error';
 import Ember from 'ember';
 
 class Person extends Model {

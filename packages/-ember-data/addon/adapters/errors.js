@@ -10,4 +10,4 @@ export {
   AbortError,
   errorsHashToArray,
   errorsArrayToHash,
-} from '../-private';
+} from '@ember-data/adapter/error';

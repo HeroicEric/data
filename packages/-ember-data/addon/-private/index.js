@@ -18,7 +18,7 @@ export {
   AbortError,
   errorsHashToArray,
   errorsArrayToHash,
-} from './adapters/errors';
+} from '@ember-data/adapter/error';
 
 // maybe public ?
 export {
