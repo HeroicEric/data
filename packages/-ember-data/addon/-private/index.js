@@ -3,8 +3,6 @@ export { default as Model } from './system/model/model';
 export { default as Errors } from './system/model/errors';
 export { default as Store } from './system/store';
 export { default as DS } from './core';
-export { default as belongsTo } from './system/relationships/belongs-to';
-export { default as hasMany } from './system/relationships/has-many';
 export { default as BuildURLMixin } from './adapters/build-url-mixin';
 export { default as Snapshot } from './system/snapshot';
 export { default as attr } from './attr';
@@ -28,7 +26,7 @@ export {
   relationshipsFor,
   relationshipStateFor,
 } from './system/record-data-for';
-export { default as normalizeModelName } from './system/normalize-model-name';
+
 export { modelHasAttributeOrRelationshipNamedType } from './utils';
 export { default as coerceId } from './system/coerce-id';
 export { default as parseResponseHeaders } from './utils/parse-response-headers';

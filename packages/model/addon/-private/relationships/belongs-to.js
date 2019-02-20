@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 import { assert, warn, inspect } from '@ember/debug';
-import normalizeModelName from '../normalize-model-name';
+import { normalizeModelName } from '@ember-data/store';
 import { DEBUG } from '@glimmer/env';
 
 /**

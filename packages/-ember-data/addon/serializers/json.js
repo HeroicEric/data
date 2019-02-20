@@ -7,9 +7,10 @@ import Serializer from '../serializer';
 import {
   coerceId,
   modelHasAttributeOrRelationshipNamedType,
-  normalizeModelName,
   errorsArrayToHash,
 } from '../-private';
+
+import { normalizeModelName } from '@ember-data/store';
 
 const emberAssign = assign || merge;
 

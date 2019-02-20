@@ -13,9 +13,10 @@ import { DEBUG } from '@glimmer/env';
 import JSONSerializer from '../serializers/json';
 import {
   coerceId,
-  modelHasAttributeOrRelationshipNamedType,
-  normalizeModelName,
+  modelHasAttributeOrRelationshipNamedType
 } from '../-private';
+
+import { normalizeModelName } from '@ember-data/store';
 
 /**
   Normally, applications will use the `RESTSerializer` by implementing

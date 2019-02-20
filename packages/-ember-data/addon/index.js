@@ -15,19 +15,19 @@ if (VERSION.match(/^1\.([0-9]|1[0-2])\./)) {
   );
 }
 
+import { belongsTo, hasMany } from '@ember-data/model';
+import { normalizeModelName } from '@ember-data/store';
+
 import {
   Snapshot,
   DebugAdapter,
   InternalModel,
   DS,
   BuildURLMixin,
-  belongsTo,
-  hasMany,
   Errors,
   RootState,
   Model,
   Store,
-  normalizeModelName,
   PromiseArray,
   PromiseObject,
   PromiseManyArray,

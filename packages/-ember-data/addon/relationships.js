@@ -1,4 +1,4 @@
 /**
   @module ember-data
 */
-export { belongsTo, hasMany } from './-private';
+export { belongsTo, hasMany } from '@ember-data/model';

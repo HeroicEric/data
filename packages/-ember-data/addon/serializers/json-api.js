@@ -10,7 +10,7 @@ import { assert, warn } from '@ember/debug';
 import { DEBUG } from '@glimmer/env';
 
 import JSONSerializer from './json';
-import { normalizeModelName } from '../-private';
+import { normalizeModelName } from '@ember-data/store';
 
 /**
   Ember Data 2.0 Serializer:

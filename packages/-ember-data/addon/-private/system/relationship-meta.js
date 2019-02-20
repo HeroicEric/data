@@ -1,6 +1,6 @@
 import { singularize } from 'ember-inflector';
 import { DEBUG } from '@glimmer/env';
-import normalizeModelName from './normalize-model-name';
+import { normalizeModelName } from '@ember-data/store';
 
 export function typeForRelationshipMeta(meta) {
   let modelName;

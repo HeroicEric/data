@@ -19,7 +19,7 @@ import { instrument } from 'ember-data/-debug';
 import { assert, deprecate, warn, inspect } from '@ember/debug';
 import { DEBUG } from '@glimmer/env';
 import Model from './model/model';
-import normalizeModelName from './normalize-model-name';
+import { normalizeModelName } from '@ember-data/store';
 import IdentityMap from './identity-map';
 import RecordDataWrapper from './store/record-data-wrapper';
 
