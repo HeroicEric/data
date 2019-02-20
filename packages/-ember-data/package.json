@@ -36,6 +36,7 @@
   "dependencies": {
     "@ember-data/adapter": "^0.0.0",
     "@ember-data/model": "^0.0.0",
+    "@ember-data/serializer": "^0.0.0",
     "@ember-data/store": "^0.0.0",
     "@ember/ordered-set": "^2.0.3",
     "@glimmer/env": "^0.1.7",
