@@ -34,6 +34,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@ember-data/adapter": "^0.0.0",
     "@ember-data/model": "^0.0.0",
     "@ember-data/store": "^0.0.0",
     "@ember/ordered-set": "^2.0.3",
