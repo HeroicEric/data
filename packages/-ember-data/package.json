@@ -35,6 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "@ember-data/model": "^0.0.0",
+    "@ember-data/store": "^0.0.0",
     "@ember/ordered-set": "^2.0.3",
     "@glimmer/env": "^0.1.7",
     "babel-plugin-feature-flags": "^0.3.1",
