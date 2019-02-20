@@ -12,7 +12,7 @@ import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo, hasMany } from 'ember-data/relationships';
 
-import Serializer from 'ember-data/serializer';
+import Serializer from '@ember-data/serializer';
 import JSONSerializer from 'ember-data/serializers/json';
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 import RESTSerializer from 'ember-data/serializers/rest';

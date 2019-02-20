@@ -41,7 +41,7 @@ import {
   _queryRecord,
 } from './store/finders';
 
-import coerceId from './coerce-id';
+import { coerceId } from '@ember-data/store/utils';
 import RecordArrayManager from './record-array-manager';
 import InternalModel from './model/internal-model';
 import RecordData from './model/record-data';

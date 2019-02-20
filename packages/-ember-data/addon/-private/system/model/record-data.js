@@ -4,7 +4,7 @@ import { isEqual } from '@ember/utils';
 import { assert, warn, inspect } from '@ember/debug';
 import { run } from '@ember/runloop';
 import Relationships from '../relationships/state/create';
-import coerceId from '../coerce-id';
+import { coerceId } from '@ember-data/store/utils';
 
 let nextBfsId = 1;
 export default class RecordData {

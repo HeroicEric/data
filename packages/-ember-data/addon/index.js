@@ -63,7 +63,7 @@ import Adapter from './adapter';
 import JSONAPIAdapter from './adapters/json-api';
 import RESTAdapter from './adapters/rest';
 
-import Serializer from './serializer';
+import Serializer from '@ember-data/serializer';
 import JSONAPISerializer from './serializers/json-api';
 import JSONSerializer from './serializers/json';
 import RESTSerializer from './serializers/rest';

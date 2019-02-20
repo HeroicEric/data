@@ -28,7 +28,7 @@ export {
 } from './system/record-data-for';
 
 export { modelHasAttributeOrRelationshipNamedType } from './utils';
-export { default as coerceId } from './system/coerce-id';
+export { coerceId } from '@ember-data/store/utils';
 export { default as parseResponseHeaders } from './utils/parse-response-headers';
 
 export { default as isEnabled } from './features';

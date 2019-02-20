@@ -5,12 +5,12 @@ import { assert, warn } from '@ember/debug';
 import { getOwner } from '@ember/application';
 import Serializer from '@ember-data/serializer';
 import {
-  coerceId,
-  modelHasAttributeOrRelationshipNamedType
-} from '../-private';
+  modelHasAttributeOrRelationshipNamedType,
+  errorsArrayToHash,
+} from './-private';
 
-import { errorsArrayToHash } from '@ember-data/adapter/error';
 import { normalizeModelName } from '@ember-data/store';
+import { coerceId } from '@ember-data/store/utils';
 
 const emberAssign = assign || merge;
 
