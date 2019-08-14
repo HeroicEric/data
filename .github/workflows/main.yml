@@ -9,6 +9,10 @@ jobs:
       matrix:
         os: [macOS-10.14, windows-2016, ubuntu-18.04]
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@master
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
