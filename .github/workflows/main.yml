@@ -9,10 +9,6 @@ jobs:
       matrix:
         os: [macOS-10.14, windows-2016, ubuntu-18.04]
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@master
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
@@ -26,3 +22,8 @@ jobs:
         run: yarn test:production
       - name: 'Node Tests'
         run: yarn test:node
+      - name: 'In progress features'
+        if: github.base_ref == 'master' || github.base_ref == 'beta'
+        env:
+          EMBER_DATA_FEATURE_OVERRIDE: ENABLE_ALL_OPTIONAL
+        run: yarn test:enabled-in-progress-features
