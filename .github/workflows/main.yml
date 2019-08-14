@@ -3,8 +3,26 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          version: 10.x
+      - name: Yarn install
+        run: yarn
+      - name: Lint features
+        run: yarn lint:features
+      - name: Lint prettier
+        run: yarn lint:features
+      - name: Check for TypeScript problems
+        run: yarn problems
+
   basic-tests:
     runs-on: ubuntu-latest
+    needs: lint
     strategy:
       matrix:
         os: [macOS-10.14, windows-2016, ubuntu-18.04]
@@ -16,13 +34,13 @@ jobs:
           version: 10.x
       - name: Install dependencies
         run: yarn install
-      - name: 'Basic tests'
+      - name: Basic tests
         run: yarn test
-      - name: 'Production build'
+      - name: Production build
         run: yarn test:production
-      - name: 'Node Tests'
+      - name: Node Tests
         run: yarn test:node
-      - name: 'In progress features'
+      - name: In progress features
         if: github.base_ref == 'master' || github.base_ref == 'beta'
         env:
           EMBER_DATA_FEATURE_OVERRIDE: ENABLE_ALL_OPTIONAL
