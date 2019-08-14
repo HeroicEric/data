@@ -3,21 +3,22 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  build:
-
+  basic-tests:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         os: [macOS-10.14, windows-2016, ubuntu-18.04]
-
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
           version: 10.x
-      - name: npm install, build, and test
-        run: |
-          yarn install
-          yarn test
+      - name: Install dependencies
+        run: yarn install
+      - name: 'Basic tests'
+        run: yarn test
+      - name: 'Production build'
+        run: yarn test:production
+      - name: 'Node Tests'
+        run: yarn test:node
