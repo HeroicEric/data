@@ -64,6 +64,7 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         scenario: [
           ember-release,
@@ -72,6 +73,30 @@ jobs:
           ember-release-with-jquery
         ]
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - uses: actions/checkout@master
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
@@ -81,7 +106,6 @@ jobs:
         run: yarn install
       - name: Basic tests with ${{ matrix.scenario }}
         run: yarn test:try-one ${{ matrix.scenario }}
-        continue-on-error: ${{ matrix.scenario == 'ember-beta' || matrix.scenario == 'ember-canary' }}
 
   additional-scenarios:
     needs: lint
@@ -108,6 +132,7 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         partner: [
           ember-data-change-tracker,
@@ -133,4 +158,3 @@ jobs:
         run: node ./bin/packages-for-commit.js
       - name: External ${{ matrix.partner }}
         run: CI=true yarn test-external:${{ matrix.partner }}
-        continue-on-error: true
