@@ -81,6 +81,7 @@ jobs:
         run: yarn install
       - name: Basic tests with ${{ matrix.scenario }}
         run: yarn test:try-one ${{ matrix.scenario }}
+        continue-on-error: ${{ matrix.scenario == 'ember-beta' || matrix.scenario == 'ember-canary' }}
 
   additional-scenarios:
     needs: lint
@@ -132,3 +133,4 @@ jobs:
         run: node ./bin/packages-for-commit.js
       - name: External ${{ matrix.partner }}
         run: CI=true yarn test-external:${{ matrix.partner }}
+        continue-on-error: true
