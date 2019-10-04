@@ -1,10 +1,10 @@
-name: CI
+name: Backport
 
 on:
   issue_comment:
     branches:
       - backport-things
-        
+
 jobs:
   build:
     runs-on: ubuntu-latest
